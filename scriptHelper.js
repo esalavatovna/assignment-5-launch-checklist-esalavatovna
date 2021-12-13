@@ -4,7 +4,7 @@
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
     
    // Here is the HTML formatting for our mission target div.
-   let missionTargetDiv = document.getElementsById("missionTarget");
+   let missionTargetDiv = document.getElementById("missionTarget");
    missionTargetDiv.innerHTML = 
    
                 `<h2>Mission Destination</h2>
@@ -38,11 +38,11 @@ function validateInput(testInput) {
     }
        
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-       let pilotStatus = document.getElementsById("pilotStatus");
-       let copilotStatus = document.getElementsById("copilotStatus")
-       let fuel = document.getElementsById("fuelStatus")
-       let cargo = document.getElementsById("cargoStatus")
-       let launchStatus = document.getElementsById("launchStatus");  
+       let pilotStatus = document.getElementById("pilotStatus");
+       let copilotStatus = document.getElementById("copilotStatus")
+       let fuel = document.getElementById("fuelStatus")
+       let cargo = document.getElementById("cargoStatus")
+        
 
 
        if (validateInput(pilot)==="Empty" || validateInput(copilot)==="Empty" || validateInput(fuelLevel)==="Empty"|| validateInput(cargoLevel)==="Empty" ){
@@ -52,6 +52,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
            alert("Make sure to enter valid information for each field!");
 
        }else {
+        let launchStatus = document.getElementById("launchStatus"); 
            list.style.visibility = "visible";
            pilotStatus.innerHTML = `Pilot ${pilot} is ready  for launch`;
            copilotStatus.innerHTML = `Copilot ${copilot} is ready  for launch`;
