@@ -54,16 +54,30 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
        }else {
         let launchStatus = document.getElementById("launchStatus"); 
            list.style.visibility = "visible";
-           pilotStatus.innerHTML = `Pilot ${pilot} is ready  for launch`;
-           copilotStatus.innerHTML = `Copilot ${copilot} is ready  for launch`;
-            if( fuelLevel <10000  ){
+           pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+           copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
+           cargo.innerHTML = `Cargo mass low enough for launch`;
+           fuel.innerHTML = `Fuel level high enough for launch`;
+           launchStatus.innerHTML =` Shuttle  not Ready for Launch`;
+           launchStatus.style.color = "rgb(199, 37, 78)";
+            if( fuelLevel < 10000 && cargoLevel>10000 ){
                 fuel.innerHTML = `Fuel level too low for launch`
-                launchStatus.innerHTML =` Shuttle not ready for launch`
-                launchStatus.style = "color:red;"
-            }else if (cargoLevel>10000){
                 cargo.innerHTML = `Cargo mass too big for launch`
-                launchStatus.innerHTML =` Shuttle not ready for launch`
-                launchStatus.style = "color:red;"
+                // launchStatus.innerHTML =` Shuttle not ready for launch`
+                // launchStatus.style = rgb(199, 37, 78);
+            } else if (  fuelLevel<10000 ){
+                console.log("fuelLevel");
+                fuel.innerHTML = `Fuel level too low for launch`
+                
+            }else if ( cargoLevel>10000){
+                console.log("cargoLevel")
+                cargo.innerHTML = `Cargo mass too big for launch`
+            }else {
+                console.log("else");
+                launchStatus.innerHTML =` Shuttle is Ready for Launch`
+                launchStatus.style.color= "rgb(65, 159, 106)";
+                // fuel.innerHTML = `Fuel level high enough for launch`
+                // cargo.innerHTML = `Cargo mass low enough for launch`
             }
           
        }
